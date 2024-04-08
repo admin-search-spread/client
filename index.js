@@ -59,5 +59,4 @@ const port = process.env.PORT || 3001;
 
 server.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
-  startWorker();
 });
